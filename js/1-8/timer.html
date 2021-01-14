@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器</title>
+    <style>
+        
+        #add{
+            width: 479px;
+        }
+        .ediv{
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+            float: left;
+            margin: 10px;
+        }
+        .border{
+            border: 3px solid slateblue;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>定时器</h1>
+    <div id="add">
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+        <div class="ediv"></div>
+    </div>
+    
+    <button id="btn">开始</button>
+    <button id="end">结束</button>
+
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+        var timer = [];
+        $("#btn").click(function () { 
+            $('.ediv').empty()
+            var t = setInterval(function () { 
+                //清除css
+                $('.ediv').removeClass('border')
+
+                var num = Math.random()*1000
+                var num = parseInt(num);
+                var index = num % 9;
+                console.log(index)
+                $('.ediv').eq(index).addClass('border')
+                
+            },1000)
+
+            // 结束
+            $("#end").click(function () {  
+                var dev = $(".ediv")
+                      //请求成功 回调函数 d为服务返回的数据
+                      $.ajax({
+                    url: 'timer.php',
+                    method: 'get',
+                    dataType: 'json'
+                }).done(function(){
+                    //清除定时器
+                    clearInterval(t)        //  清除定时器
+                    dev.each(function(index){      // 遍历 div
+                        if($(this).hasClass('border')){     //找到 包含选中样式的div
+                            dev.eq(index).append(index.msg)        //在选中的div中显示中奖信息
+                        }
+                    })
+                })
+                    
+                $("#btn2").unbind('click')          // 删除 之前绑定的事件，防止事件叠加
+            })
+
+        })
+
+
+        
+
+    </script>
+</body>
+</html>

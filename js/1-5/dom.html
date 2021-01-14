@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<a href="" class="q">AAA</a>
+	<a href="" class="q">BBB</a>
+	<a href="" class="q">CCC</a>
+	<a href="" class="q">DDD</a>
+
+	<button id="btn">BUTTON</button>
+
+	<script>
+	
+		var btn = document.getElementById('btn');
+		btn.addEventListener('click',function(){
+			document.querySelectorAll(".q",[1]).remove();
+
+		})
+
+
+	</script>
+	
+</body>
+</html>

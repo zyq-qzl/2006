@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+ 
+    td { color:lightblue; font-weight:bold; }
+    </style>
+  <script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <table>
+ 
+  <tr><td>First Row</td></tr>
+  <tr><td>Middle Row</td></tr>
+  <tr><td>Last Row</td></tr>
+ 
+</table>
+<script>
+    //查找第一个表行
+    $("tr:first").css("font-style", "italic");
+    //查找最后一个表行
+    $("tr:last").css({backgroundColor: 'plum', fontWeight: 'bolder'});
+</script>
+ 
+</body>
+</html>

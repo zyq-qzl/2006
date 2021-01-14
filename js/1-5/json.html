@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+
+	
+	<script>
+			
+		//实例化
+		var xhr = new XMLHttpRequest();
+
+		//监听 readystate
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState === xhr.DONE){
+				if(xhr.status === 200){
+					//接受 服务器的响应数据（json字符串）
+					var json_str = xhr.responseText
+					console.log(json_str);
+					var obj = JSON.parse(json_str)
+					console.log(obj)
+					console.log(obj.name)
+				}else{
+					alert(123);
+				}
+			}
+		}
+
+		//open
+		xhr.open('GET','a.php')
+
+
+		//send
+		xhr.send()
+
+	</script>
+</body>
+</html>

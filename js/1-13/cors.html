@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通源</title>
+</head>
+<body>
+    <h1>跨域 CORS</h1>
+
+    <script>
+        // 1
+        var xhr = new XMLHttpRequest();
+        // 2
+        xhr.onreadystatechange = function (){
+            if(xhr.readyState==4 && xhr.status==200)
+            {
+                //接收服务器的响应数据
+                var json_str = xhr.responseText
+                console.log(json_str)
+            }
+        }
+        // 3
+        xhr.open("get","api.php")
+
+        // 4
+        xhr.send()
+    </script>
+</body>
+</html>

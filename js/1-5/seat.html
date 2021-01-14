@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>座位</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.seat{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			float: left;
+			/*line-height: 10;*/
+		}
+
+		
+	
+	</style>
+</head>
+<body>
+		<div class="seat">
+			<button class="btn">预定</button>
+		</div>
+		<div class="seat">
+			<button class="btn">预定</button>
+		</div>
+		<div class="seat">
+			<button class="btn">预定</button>
+		</div>
+		<div class="seat">
+			<button class="btn">预定</button>
+		</div>
+
+
+	<script src="jquery.js"></script>
+	<script>
+		$(".btn").click(function(){
+			// alert(1234);
+			var seat = document.getElementsByClass('.seat');
+			console.log('seat')
+			seat.style.backgroundColor = "brown";
+		});
+	</script>
+	
+</body>
+
+</html>

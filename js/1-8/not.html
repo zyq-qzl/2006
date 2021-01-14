@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+div { width:50px; height:50px; margin:10px; float:left;
+ background:yellow; border:2px solid white; }
+.green { background:#8f8; }
+.gray { background:#ccc; }
+#blueone { background:#99f; }
+</style>
+ <script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+ <div></div>
+<div id="blueone"></div>
+<div></div>
+<div class="green"></div>
+ 
+<div class="green"></div>
+<div class="gray"></div>
+<div></div>
+ 
+<script>
+    $("div").not(".green, #blueone").css("border-color", "red");
+    $("p").not( $("#selected")[0] )
+ 
+</script>
+ 
+</body>
+</html>

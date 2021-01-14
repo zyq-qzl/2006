@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>gt demo</title>
+  <script src="../jquery-3.5.1.min.js"></script>
+</head>
+<body>
+ 
+<table border="1">
+  <tr><td>TD #0</td><td>TD #1</td><td>TD #2</td></tr>
+  <tr><td>TD #3</td><td>TD #4</td><td>TD #5</td></tr>
+  <tr><td>TD #6</td><td>TD #7</td><td>TD #8</td></tr>
+</table>
+<script>
+    // 选择匹配集合中所有大于给定index（索引值）的元素
+    $( "td:gt(4)" ).css( "backgroundColor", "pink" );
+    $( "td:gt(-2)" ).css( "color", "palegreen" );
+
+    // 选择匹配集合中所有小于给定index（索引值）的元素。
+    $("td:lt(4)").css("color", "#11ccff");
+    $("td:lt(-8)").css("color", "red");
+
+
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn">button</button>
+	<form action="user.php" method="post" >
+		用户名：<input type="text" name="user_name"><br/>
+		手机号：<input type="text" name="phone"><br/>
+		Email：<input type="email" name="email"><br/>
+		密 码：<input type="password" name="password" autocomplete=""><br/>
+		确认密码：<input type="password" name="password2"><br/>
+		<input type="submit" id="a" value="注册">
+
+
+	<script>
+		document.getElementById('btn');
+		var d = document.forms[0];
+		d.addEventListener('submit',function(e){
+			//阻止表单提交的默认行为
+			e.preventDefault()
+
+			var user_name = d.user_name.value;
+			var email = d.elements['email'];
+			var password = d.password.value;
+
+			//通过ajax将表单发送到服务器
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState === xhr.DONE){
+					if(xhr.status === 200){
+						var json_str = xhr.responseText;
+						console.log(json_str)
+
+						var data = ISON.parse(json_str);
+
+						//判断接口返回的状态码
+						if(data.error == 0){
+							alert('ok')
+						}else{
+							aler('失败')
+						}
+					}
+				}
+			}
+			xhr.open("post","reg.php");
+
+
+			//send
+			// var inputs = d.elements //获取所有input
+			var inputs = d.querySelectorAll('input');
+			console.log(inputs);
+
+
+			var fomr_param = "";
+			for(var i=0;i<inputs.length;i++){
+				if(inputs[i].getAttribute("name")===null){
+					continue;
+				}
+
+				console.log(inputs[i].getAttribute("name"));
+				console.log(inputs[i].value);
+
+				fomr_param += inputs[i].getAttribute("name") +"="+inputs[i].value + "&"
+			}
+			console.log(fomr_param);
+
+
+			xhr.setRquestHeader("content-type","application/x-www-form-urlencode");
+			xhr.send("name"+user_name + "&m" + mobile)
+		})
+
+
+	</script>
+</body>
+</html>

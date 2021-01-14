@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>头部响应</title>
+</head>
+<body>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+        var xhr = new XMLHttpRequest()
+
+        // 2 监听 readyState == 4
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4 && xhr.status==200)
+            {
+
+            }
+        }
+
+        // 3 open
+        xhr.open("get","header.php")
+        //设置 http请求头
+        xhr.setRequestHeader("uid",1234)
+        xhr.send()
+    </script>
+</body>
+</html>
